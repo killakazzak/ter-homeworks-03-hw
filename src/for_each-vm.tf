@@ -1,22 +1,3 @@
-locals {
-  vm_configs = [
-    {
-      vm_name     = "main"
-      cpu         = 2
-      ram         = 1
-      disk_volume = 100
-      zone        = "ru-central1-a"
-    },
-    {
-      vm_name     = "replica"
-      cpu         = 2
-      ram         = 1
-      disk_volume = 50
-      zone        = "ru-central1-b"
-    }
-  ]
-}
-
 resource "yandex_compute_instance" "db" {
   for_each = { for vm in local.vm_configs : vm.vm_name => vm }
 
@@ -30,7 +11,7 @@ resource "yandex_compute_instance" "db" {
 
   boot_disk {
     initialize_params {
-      image_id = ""  # Укажите нужный образ
+      image_id = "fd8ad8j9gqqntstk5c36"
       size     = each.value.disk_volume
     }
   }
