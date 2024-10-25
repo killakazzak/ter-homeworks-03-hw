@@ -18,9 +18,7 @@ resource "yandex_compute_instance" "db" {
 
   network_interface {
     subnet_id = "e9bi11del4gshgcmh476"
-
     nat = true
-
-    security_group_ids = ["enpgkfejf10nncf6u3p1"]  # Укажите ID группы безопасности
+    security_group_ids = ["enpgkfejf10nncf6u3p1"]
   }
 }
