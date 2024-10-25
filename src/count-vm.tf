@@ -26,5 +26,9 @@ resource "yandex_compute_instance" "web" {
   scheduling_policy {
     preemptible = true  # Указывает, что ВМ может быть прерываемой
   }
+  
+  metadata = {
+    ssh_key = local.ssh_public_key
+  }
 }
 

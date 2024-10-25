@@ -21,4 +21,8 @@ resource "yandex_compute_instance" "db" {
     nat = true
     security_group_ids = ["enpgkfejf10nncf6u3p1"]
   }
+  
+  metadata = {
+    ssh_key = local.ssh_public_key
+  }
 }
