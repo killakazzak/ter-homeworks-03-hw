@@ -20,7 +20,6 @@ resource "yandex_compute_instance" "web" {
   network_interface {
     subnet_id = "e9bi11del4gshgcmh476"
     nat = true
-    security_group_ids = ["enpgkfejf10nncf6u3p1"]
   }
   
   scheduling_policy {
@@ -28,8 +27,8 @@ resource "yandex_compute_instance" "web" {
   }
   
   metadata = {
-    serial-port-enable = 1
-    ssh-keys = "tenda:${local.ssh_public_key}"
+    "ssh-keys" = "lamos:${file("/root/.ssh/id_ed25519.pub")}"
   }
+
 }
 

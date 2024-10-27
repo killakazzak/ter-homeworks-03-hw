@@ -23,6 +23,6 @@ resource "yandex_compute_instance" "db" {
   }
   
   metadata = {
-    ssh_key = local.ssh_public_key
+    ssh-keys = "tenda:${local.ssh_public_key}"
   }
 }
