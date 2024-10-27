@@ -28,7 +28,7 @@ resource "yandex_compute_instance" "web" {
   }
   
   metadata = {
-    ssh_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILcxwoAZ663FH+A3tCeFanPjxCRyFwCcoxKClZSOPaYh root@killakazzak.fvds.ru"
+    ssh_keys = "root:${local.ssh_public_key}"
   }
 }
 
