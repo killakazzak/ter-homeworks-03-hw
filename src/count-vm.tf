@@ -28,7 +28,8 @@ resource "yandex_compute_instance" "web" {
   }
   
   metadata = {
-    ssh_keys = "root:${local.ssh_public_key}"
+    serial-port-enable = 1
+    ssh-keys = "tenda:${local.ssh_public_key}"
   }
 }
 

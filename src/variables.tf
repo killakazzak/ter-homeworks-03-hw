@@ -40,3 +40,4 @@ variable "each_vm" {
     zone        = string
   }))
 }
+
