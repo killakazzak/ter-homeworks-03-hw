@@ -13,7 +13,7 @@ resource "yandex_compute_instance" "web" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd8ad8j9gqqntstk5c36"
+      image_id = "fd8qfp90a5l0m3d2htrm"
     }
   }
 
@@ -28,7 +28,7 @@ resource "yandex_compute_instance" "web" {
   }
   
   metadata = {
-    ssh_key = local.ssh_public_key
+    ssh_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILcxwoAZ663FH+A3tCeFanPjxCRyFwCcoxKClZSOPaYh root@killakazzak.fvds.ru"
   }
 }
 
