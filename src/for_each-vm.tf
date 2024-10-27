@@ -23,6 +23,7 @@ resource "yandex_compute_instance" "db" {
   }
   
   metadata = {
-    ssh-keys = "tenda:${local.ssh_public_key}"
+    ssh-keys = "lamos:${local.ssh_public_key}"
+    user-data = "${file("cloud-init.yaml")}"
   }
 }
