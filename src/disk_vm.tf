@@ -3,14 +3,14 @@ resource "yandex_compute_disk" "my_disk" {
 
   name   = "disk-${count.index}"
   size   = 1  # размер в Гб
-  zone   = "ru-central1-a"  # укажите нужную зону
-  type   = "network-ssd"  # тип диска, можно изменить на нужный
+  zone   = "ru-central1-a" 
+  type   = "network-ssd" 
 }
 
 resource "yandex_compute_instance" "storage" {
   name        = "storage"
-  zone        = "ru-central1-a"  # укажите нужную зону
-  platform_id = "standard-v1"  # укажите нужную платформу
+  zone        = "ru-central1-a" 
+  platform_id = "standard-v1"  
 
   resources {
     cores  = 2
@@ -19,7 +19,7 @@ resource "yandex_compute_instance" "storage" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd8g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0"  # замените на ID вашего образа
+      image_id = "fd8g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0" 
     }
   }
 
@@ -32,7 +32,7 @@ resource "yandex_compute_instance" "storage" {
   }
 
   network_interface {
-    subnet_id = "YOUR_SUBNET_ID"  # замените на ID вашей подсети
+    subnet_id = "YOUR_SUBNET_ID"
     nat      = true
   }
 }
