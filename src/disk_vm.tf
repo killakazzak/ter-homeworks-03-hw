@@ -19,7 +19,7 @@ resource "yandex_compute_instance" "storage" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd8g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0" 
+      image_id = "e9bi11del4gshgcmh476" 
     }
   }
 
@@ -32,7 +32,7 @@ resource "yandex_compute_instance" "storage" {
   }
 
   network_interface {
-    subnet_id = "YOUR_SUBNET_ID"
+    subnet_id = "e9bi11del4gshgcmh476"
     nat      = true
   }
 }
