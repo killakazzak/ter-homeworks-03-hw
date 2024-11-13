@@ -10,7 +10,6 @@ resource "yandex_compute_disk" "my_disk" {
 resource "yandex_compute_instance" "storage" {
   name        = "storage"
   zone        = "ru-central1-a" 
-  platform_id = "standard-v1"  
 
   resources {
     cores  = 2
@@ -19,7 +18,7 @@ resource "yandex_compute_instance" "storage" {
 
   boot_disk {
     initialize_params {
-      image_id = "e9bi11del4gshgcmh476" 
+      image_id = "fd8midk9e4fk7jd0ar0j" 
     }
   }
 
@@ -36,3 +35,4 @@ resource "yandex_compute_instance" "storage" {
     nat      = true
   }
 }
+
