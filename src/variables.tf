@@ -41,3 +41,51 @@ variable "each_vm" {
   }))
 }
 
+variable "instance_count" {
+  description = "Number of web instances"
+  type        = number
+  default     = 2
+}
+
+variable "zone" {
+  description = "Zone for the instances"
+  type        = string
+  default     = "ru-central1-a"
+}
+
+variable "core_fraction" {
+  description = "Core fraction for the instances"
+  type        = number
+  default     = 5
+}
+
+variable "cores" {
+  description = "Number of cores for the instances"
+  type        = number
+  default     = 2
+}
+
+variable "memory" {
+  description = "Memory for the instances (in GB)"
+  type        = number
+  default     = 1
+}
+
+variable "image_id" {
+  description = "Image ID for the boot disk"
+  type        = string
+  default     = "fd8qfp90a5l0m3d2htrm"
+}
+
+variable "subnet_id" {
+  description = "Subnet ID for the network interface"
+  type        = string
+  default     = "e9bi11del4gshgcmh476"
+}
+
+variable "security_group_ids" {
+  description = "Security group IDs for the network interface"
+  type        = list(string)
+  default     = ["enpgkfejf10nncf6u3p1"]
+}
+

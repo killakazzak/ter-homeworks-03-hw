@@ -1,26 +1,25 @@
 resource "yandex_compute_instance" "web" {
-  count = 2
+  count = var.instance_count
 
   name = "web-${count.index + 1}" # Создаст web-1 и web-2
-  zone = "ru-central1-a"
+  zone = var.zone
 
   resources {
-    core_fraction = 5
-    cores         = 2
-    memory        = 1
-
+    core_fraction = var.core_fraction
+    cores         = var.cores
+    memory        = var.memory
   }
 
   boot_disk {
     initialize_params {
-      image_id = "fd8qfp90a5l0m3d2htrm"
+      image_id = var.image_id
     }
   }
 
   network_interface {
-    subnet_id          = "e9bi11del4gshgcmh476"
+    subnet_id          = var.subnet_id
     nat                = true
-    security_group_ids = ["enpgkfejf10nncf6u3p1"]
+    security_group_ids = var.security_group_ids
   }
 
   scheduling_policy {
@@ -34,4 +33,3 @@ resource "yandex_compute_instance" "web" {
 
   depends_on = [yandex_compute_instance.db] # Зависимость от ВМ db
 }
-
