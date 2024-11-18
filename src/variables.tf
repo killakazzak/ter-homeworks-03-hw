@@ -94,3 +94,49 @@ variable "db_image_id" {
   type        = string
   default     = "fd8ad8j9gqqntstk5c36"
 }
+variable "disk_count" {
+  description = "Number of disks to create"
+  type        = number
+  default     = 3
+}
+variable "disk_size" {
+  description = "Size of each disk in GB"
+  type        = number
+  default     = 1
+}
+
+variable "disk_zone" {
+  description = "Zone for the disks"
+  type        = string
+  default     = "ru-central1-a"
+}
+
+variable "disk_type" {
+  description = "Type of the disks"
+  type        = string
+  default     = "network-ssd"
+}
+
+variable "instance_name" {
+  description = "Name of the storage instance"
+  type        = string
+  default     = "storage"
+}
+
+variable "instance_zone" {
+  description = "Zone for the storage instance"
+  type        = string
+  default     = "ru-central1-a"
+}
+
+variable "instance_cores" {
+  description = "Number of cores for the storage instance"
+  type        = number
+  default     = 2
+}
+
+variable "instance_memory" {
+  description = "Memory size for the storage instance in GB"
+  type        = number
+  default     = 2
+}

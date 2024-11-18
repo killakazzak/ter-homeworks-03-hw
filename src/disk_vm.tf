@@ -1,24 +1,24 @@
 resource "yandex_compute_disk" "my_disk" {
-  count = 3
+  count = var.disk_count
 
-  name   = "disk-${count.index}"
-  size   = 1  # размер в Гб
-  zone   = "ru-central1-a" 
-  type   = "network-ssd" 
+  name = "disk-${count.index}"
+  size = var.disk_size # размер в Гб
+  zone = var.disk_zone
+  type = var.disk_type
 }
 
 resource "yandex_compute_instance" "storage" {
-  name        = "storage"
-  zone        = "ru-central1-a" 
+  name = var.instance_name
+  zone = var.instance_zone
 
   resources {
-    cores  = 2
-    memory = 2  # размер памяти в Гб
+    cores  = var.instance_cores
+    memory = var.instance_memory # размер памяти в Гб
   }
 
   boot_disk {
     initialize_params {
-      image_id = "fd8midk9e4fk7jd0ar0j" 
+      image_id = var.image_id
     }
   }
 
@@ -31,8 +31,7 @@ resource "yandex_compute_instance" "storage" {
   }
 
   network_interface {
-    subnet_id = "e9bi11del4gshgcmh476"
-    nat      = true
+    subnet_id = var.subnet_id
+    nat       = true
   }
 }
-
