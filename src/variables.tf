@@ -89,3 +89,8 @@ variable "security_group_ids" {
   default     = ["enpgkfejf10nncf6u3p1"]
 }
 
+variable "db_image_id" {
+  description = "Image ID for the boot disk of the database instance"
+  type        = string
+  default     = "fd8ad8j9gqqntstk5c36"
+}

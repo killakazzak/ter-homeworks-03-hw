@@ -11,19 +11,19 @@ resource "yandex_compute_instance" "db" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd8ad8j9gqqntstk5c36"
+      image_id = var.db_image_id
       size     = each.value.disk_volume
     }
   }
 
   network_interface {
-    subnet_id = "e9bi11del4gshgcmh476"
-    nat = true
-    security_group_ids = ["enpgkfejf10nncf6u3p1"]
+    subnet_id          = var.subnet_id
+    nat                = true
+    security_group_ids = var.security_group_ids
   }
-  
+
   metadata = {
-    ssh-keys = "lamos:${local.ssh_public_key}"
+    ssh-keys  = "lamos:${local.ssh_public_key}"
     user-data = "${file("cloud-init.yaml")}"
   }
 }
