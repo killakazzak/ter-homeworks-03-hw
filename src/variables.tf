@@ -140,3 +140,9 @@ variable "instance_memory" {
   type        = number
   default     = 2
 }
+
+variable "domain" {
+  description = "The domain name for the servers"
+  type        = string
+  default     = "example.com"
+}
