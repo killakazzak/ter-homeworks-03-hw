@@ -8,7 +8,7 @@ variable "web_provision" {
 resource "null_resource" "web_hosts_provision" {
   count = var.web_provision == true ? 1 : 0
   #Ждем создания инстанса
-  depends_on = [yandex_compute_instance.web, yandex_compute_instance.db, yandex_compute_disk.my_disk]
+  depends_on = [yandex_compute_instance.web, yandex_compute_instance.db, yandex_compute_instance.storage]
 
   #Добавление ПРИВАТНОГО ssh ключа в ssh-agent
   provisioner "local-exec" {
